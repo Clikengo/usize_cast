@@ -53,24 +53,28 @@ macro_rules! impl_x {
             };
 
             impl FromUsize for $ux {
+                #[inline]
                 fn from_usize(u: usize) -> Self {
                     u as $ux
                 }
             }
 
             impl FromIsize for $ix {
+                #[inline]
                 fn from_isize(u: isize) -> Self {
                     u as $ix
                 }
             }
 
             impl IntoUsize for $ux {
+                #[inline]
                 fn into_usize(self) -> usize {
                     self as usize
                 }
             }
 
             impl IntoIsize for $ix {
+                #[inline]
                 fn into_isize(self) -> isize {
                     self as isize
                 }
@@ -78,12 +82,14 @@ macro_rules! impl_x {
 
             $(
                 impl IntoUsize for $iux {
+                    #[inline]
                     fn into_usize(self) -> usize {
                         self as usize
                     }
                 }
 
                 impl IntoIsize for $iix {
+                    #[inline]
                     fn into_isize(self) -> isize {
                         self as isize
                     }
@@ -92,18 +98,21 @@ macro_rules! impl_x {
 
             $(
                 impl FromUsize for $fux {
+                    #[inline]
                     fn from_usize(u: usize) -> Self {
                         u as $fux
                     }
                 }
 
                 impl FromUsize for $fix {
+                    #[inline]
                     fn from_usize(u: usize) -> Self {
                         u as $fix
                     }
                 }
 
                 impl FromIsize for $fix {
+                    #[inline]
                     fn from_isize(u: isize) -> Self {
                         u as $fix
                     }
