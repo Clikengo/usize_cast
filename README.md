@@ -2,6 +2,27 @@
 
 Very simply library that allow compile time checked cast from and to `usize`/`isize`.
 
+On 64 bits platform it allows:
+
+- `u16`, `u32`, `u64` into `usize`
+- `i16`, `i32`, `i64` into `isize`
+- `u64`, `u128`, `i128` from `usize`
+- `i64`, `i128` from `isize`
+
+On 32 bits platform it allows:
+
+- `u16`, `u32` into `usize`
+- `i16`, `i32` into `isize`
+- `u32`, `u64`, `i64`, `u128`, `i128` from `usize`
+- `i32`, `i64`, `i128` from `isize`
+
+On 16 bits platform it allows:
+
+- `u16` into `usize`
+- `i16` into `isize`
+- `u16`, `u32`, `i32`, `u64`, `i64`, `u128`, `i128` from `usize`
+- `i16`, `i32`, `i64`, `i128` from `isize`
+
 ## Installation
 
 ```toml

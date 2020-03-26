@@ -97,6 +97,12 @@ macro_rules! impl_x {
                     }
                 }
 
+                impl FromUsize for $fix {
+                    fn from_usize(u: usize) -> Self {
+                        u as $fix
+                    }
+                }
+
                 impl FromIsize for $fix {
                     fn from_isize(u: isize) -> Self {
                         u as $fix
@@ -147,6 +153,7 @@ macro_rules! impl_x {
                         assert_eq!((2 as $fix), $fix::from_isize(2isize));
                         assert_eq!((3 as $fix), $fix::from_isize(3isize));
                         assert_eq!($fux::try_from(usize::max_value()).unwrap(), $fux::from_usize(usize::max_value()));
+                        assert_eq!($fix::try_from(usize::max_value()).unwrap(), $fix::from_usize(usize::max_value()));
                         assert_eq!($fix::try_from(isize::max_value()).unwrap(), $fix::from_isize(isize::max_value()));
                         assert_eq!($fix::try_from(isize::min_value()).unwrap(), $fix::from_isize(isize::min_value()));
                     )*
