@@ -1,0 +1,9 @@
+[package]
+name = "usize_cast"
+version = "1.0.0"
+authors = ["Vincent Rouillé <v.rouille@clikengo.com>"]
+edition = "2018"
+categories = ["no-std", "hardware-support"]
+keywords = ["as", "cast", "usize", "isize"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Clikengo/usize_cast"
