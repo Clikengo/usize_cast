@@ -1,9 +1,14 @@
 [package]
 name = "usize_cast"
+description = """
+Compile time checked cast from and to `usize`/`isize`
+"""
 version = "1.0.0"
 authors = ["Vincent Rouillé <v.rouille@clikengo.com>"]
 edition = "2018"
 categories = ["no-std", "hardware-support"]
 keywords = ["as", "cast", "usize", "isize"]
 license = "MIT OR Apache-2.0"
+readme = "README.md"
 repository = "https://github.com/Clikengo/usize_cast"
+documentation = "https://docs.rs/usize_cast"
