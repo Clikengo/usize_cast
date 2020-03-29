@@ -7,6 +7,7 @@
 //! assert_eq!(2i64.into_isize(), 2isize);
 //! assert_eq!(3i64.into_isize(), 3isize);
 //! assert_eq!(1u32.into_usize(), 1usize);
+//! assert_eq!(1u32.into_isize(), 1isize);
 //! assert_eq!(2i32.into_isize(), 2isize);
 //! assert_eq!(3i32.into_isize(), 3isize);
 //! assert_eq!(u64::max_value().into_usize(), usize::max_value());
@@ -88,6 +89,13 @@ macro_rules! impl_x {
                     }
                 }
 
+                impl IntoIsize for $iux {
+                    #[inline]
+                    fn into_isize(self) -> isize {
+                        self as isize
+                    }
+                }
+
                 impl IntoIsize for $iix {
                     #[inline]
                     fn into_isize(self) -> isize {
@@ -143,9 +151,11 @@ macro_rules! impl_x {
                     assert_eq!($ix::min_value().into_isize(), isize::min_value());
                     $(
                         assert_eq!((1 as $iux).into_usize(), 1usize);
+                        assert_eq!((1 as $iux).into_isize(), 1isize);
                         assert_eq!((2 as $iix).into_isize(), 2isize);
                         assert_eq!((3 as $iix).into_isize(), 3isize);
                         assert_eq!($iux::max_value().into_usize(), usize::try_from($iux::max_value()).unwrap());
+                        assert_eq!($iux::max_value().into_isize(), isize::try_from($iux::max_value()).unwrap());
                         assert_eq!($iix::max_value().into_isize(), isize::try_from($iix::max_value()).unwrap());
                         assert_eq!($iix::min_value().into_isize(), isize::try_from($iix::min_value()).unwrap());
                     )*

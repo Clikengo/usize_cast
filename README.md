@@ -5,14 +5,14 @@ Very simply library that allow compile time checked cast from and to `usize`/`is
 On 64 bits platform it allows:
 
 - `u16`, `u32`, `u64` into `usize`
-- `i16`, `i32`, `i64` into `isize`
+- `i16`, `u16`, `i32`, `u32`, `i64` into `isize`
 - `u64`, `u128`, `i128` from `usize`
 - `i64`, `i128` from `isize`
 
 On 32 bits platform it allows:
 
 - `u16`, `u32` into `usize`
-- `i16`, `i32` into `isize`
+- `i16`, `u16`, `i32` into `isize`
 - `u32`, `u64`, `i64`, `u128`, `i128` from `usize`
 - `i32`, `i64`, `i128` from `isize`
 
@@ -39,6 +39,7 @@ assert_eq!(1u64.into_usize(), 1usize);
 assert_eq!(2i64.into_isize(), 2isize);
 assert_eq!(3i64.into_isize(), 3isize);
 assert_eq!(1u32.into_usize(), 1usize);
+assert_eq!(1u32.into_isize(), 1isize);
 assert_eq!(2i32.into_isize(), 2isize);
 assert_eq!(3i32.into_isize(), 3isize);
 assert_eq!(u64::max_value().into_usize(), usize::max_value());
